@@ -1,22 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Your code goes here
 function generatePassword() {
-  // all your code goes here
+  //get password criteria
+  const getCriteria = function () {
+    return;
+  };
+  //
 }
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-// Special characters: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
 
 // GLOBAL VARIABLES
 const lowerCase = [
@@ -76,29 +68,49 @@ const upperCase = [
   "Z",
 ];
 const numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const specialCharacters = ['!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\', ']', '^', '_', '`', '{', '|', '}', '~' ]; 
+// Special characters: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+const specialCharacters = [
+  "!",
+  '"',
+  "#",
+  "$",
+  "%",
+  "&",
+  "'",
+  "(",
+  ")",
+  "*",
+  "+",
+  ",",
+  "-",
+  ".",
+  "/",
+  ":",
+  ";",
+  "<",
+  "=",
+  ">",
+  "?",
+  "@",
+  "[",
+  "\\",
+  "]",
+  "^",
+  "_",
+  "`",
+  "{",
+  "|",
+  "}",
+  "~",
+];
 
-// PSEUDO CODE
-// user clicks button
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-// getPasswordCriteria
-// prompt for passwordLength (8-128 ch)
-// convert to integer
-// validate is within range
-// if true
-// store passwordLength
-// move to next question
-// else
-// alert "Please enter a number from 8-128"
-// confirm lowercase choice Y/N
-// store in isLowerCase (true/false)
-// confirm upper choice Y/N
-// store in isUpperCase (true/false)
-// confirm numeric choice Y/N
-// store in isNumeric (true/false)
-// confirm special character choice Y/N
-// store in isSpecial (true/false)
-// check if all false
-// if true
-// alert "Please choose at least one type of character."
-// else return criteria choices (to an array?)
+  passwordText.value = password;
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
