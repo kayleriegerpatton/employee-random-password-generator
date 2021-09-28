@@ -16,13 +16,13 @@ const getPasswordLength = function () {
 }
 // check password length is a number (not a string)
 const validateIsNumber = function (passwordLength) {
-  (isNaN(passwordLength))
+  const notValidNumber = (isNaN(passwordLength))
   return notValidNumber;
 }
 // check password length is >=8 and <= 128
 const validateNumberValue = function (passwordLength) {
-  
-  return;
+  const validValue = (passwordLength >= 8 || passwordLength <= 128);
+  return validValue;
 }
 
 // GLOBAL VARIABLES
@@ -123,9 +123,12 @@ const specialCharacters = [
 
 // get password length
   const passwordLength = getPasswordLength ();
-  // validate is a number response
+
+  // validate it's a number response
   const notValidNumber = validateIsNumber(passwordLength);
-  if (notValidNumber) {
+
+  if (!(notValidNumber) && (validValue)) {
+
 
   } else {
     alert("Please enter a whole number from 8 to 128.")
