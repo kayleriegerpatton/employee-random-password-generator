@@ -102,13 +102,13 @@ const getPasswordLength = function () {
   const passwordLength = prompt(
     "Please select a password length between 8 and 128 characters."
   );
-  return passwordLength;
+  return Number(passwordLength);
 };
 
 // check password length is a number (not a string)
 const validateIsNumber = function (passwordLength) {
-  const notValidNumber = isNaN(passwordLength);
-  return notValidNumber;
+  const isNumber = typeof passwordLength;
+  return isNumber;
 };
 
 // check password length is >=8 and <= 128
@@ -145,7 +145,8 @@ const getCriteria = function () {
   // get password length
   const passwordLength = getPasswordLength();
   const isValid =
-    validateIsNumber(passwordLength) && validateNumberValue(passwordLength);
+    validateIsNumber(passwordLength) === "number" &&
+    validateNumberValue(passwordLength) === true;
   if (isValid) {
     // get password character choices
     const isLowercase = getIsLowercase();
@@ -167,7 +168,6 @@ const getCriteria = function () {
         isNumeric: isNumeric,
         isSpecial: isSpecial,
       };
-      console.log(passwordCriteria);
       return passwordCriteria;
     } else {
       alert("Please select at least one character type.");
@@ -182,8 +182,8 @@ const getCriteria = function () {
 // // FUNCTION DECLARATIONS (how to do steps)
 // function generatePassword() {
 //   // All code goes here
-//   const passwordCriteria = getCriteria();
-//   console.log(passwordCriteria);
+const passwordCriteria = getCriteria();
+console.log(passwordCriteria);
 // }
 
 // // APPLICATION STEPS (what to do/call from above)
