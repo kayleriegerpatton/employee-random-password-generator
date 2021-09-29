@@ -59,7 +59,7 @@ const upperCase = [
 
 const numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const specialCharacters = [
+const special = [
   "!",
   '"',
   "#",
@@ -179,13 +179,49 @@ const getCriteria = function () {
   }
 };
 
-const generatePassword = function () {
-  // declare passwordCharacters array
-  const passwordCharacters = [];
+// get random lowercase character
+const getRandomLower = function () {
+  // get random index integer
+  const randomInteger = Math.floor(Math.random() * lowerCase.length);
+  // select random character from array
+  const randomLower = lowerCase[randomInteger];
+  return randomLower;
+};
 
-  // randomly choose a character type array from the chosen (true) options
-  // randomly choose character from array
-  // generate random integer to set the passwordCharacters array length
+// get random uppercase character
+const getRandomUpper = function () {
+  // get random index integer
+  const randomInteger = Math.floor(Math.random() * upperCase.length);
+  // select random character from array
+  const randomUpper = upperCase[randomInteger];
+  return randomUpper;
+};
+
+// get random numeric character
+const getRandomNumeric = function () {
+  // get random index integer
+  const randomInteger = Math.floor(Math.random() * numeric.length);
+  // select random character from array
+  const randomNumeric = numeric[randomInteger];
+  return randomNumeric;
+};
+
+// get random special character
+const getRandomSpecial = function () {
+  // get random index integer
+  const randomInteger = Math.floor(Math.random() * special.length);
+  // select random character from array
+  const randomSpecial = special[randomInteger];
+  return randomSpecial;
+};
+
+const generatePassword = function () {
+  // declare empty passwordCharacters array
+  const passwordCharacters = [];
+  // get randomIndexNumber
+  // use randomIndexNumber choose a random character type array from the chosen (true) options
+  // get randomCharacterNumber
+  // use randomCharacterNumber to choose a character from array
   const randomInteger = Math.floor(Math.random() * passwordLength);
 
   return;
@@ -195,7 +231,9 @@ const generatePassword = function () {
 // function generatePassword() {
 // get password criteria
 const passwordCriteria = getCriteria();
-console.log(passwordCriteria);
+// console.log(getCriteria);
+const randomSpecial = getRandomSpecial();
+console.log(randomSpecial);
 
 // generate random password
 // create empty passwordCharacters array
