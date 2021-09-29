@@ -97,13 +97,6 @@ const special = [
 // FUNCTION DECLARATIONS
 var generateBtn = document.querySelector("#generate");
 
-const getPasswordLength = function () {
-  const passwordLength = prompt(
-    "Please select a password length between 8 and 128 characters."
-  );
-  return Number(passwordLength);
-};
-
 // check password length is a number (not a string)
 const validateIsNumber = function (passwordLength) {
   const isNumber = typeof passwordLength;
@@ -114,6 +107,13 @@ const validateIsNumber = function (passwordLength) {
 const validateNumberValue = function (passwordLength) {
   const validValue = passwordLength >= 8 && passwordLength <= 128;
   return validValue;
+};
+
+const getPasswordLength = function () {
+  const passwordLength = prompt(
+    "Please select a password length between 8 and 128 characters."
+  );
+  return Number(passwordLength);
 };
 
 // check if lowercase characters is chosen
@@ -216,28 +216,28 @@ const getRandomSpecial = function () {
 };
 
 const generatePassword = function () {
+  // get password criteria
+  const passwordCriteria = getCriteria();
+  console.log(passwordCriteria);
   // declare empty passwordCharacters array
   const passwordCharacters = [];
   // get randomIndexNumber
   // use randomIndexNumber choose a random character type array from the chosen (true) options
-  // get randomCharacterNumber
+  // get randomCharacterNumber // ARRAY OF FUNCTIONS? HOW?
   // use randomCharacterNumber to choose a character from array
-  const randomInteger = Math.floor(Math.random() * passwordLength);
+  // const randomInteger = Math.floor(Math.random() * passwordLength);
 
-  return;
+  return "password123";
 };
 
 // EXECUTION (what to do/call from above)
 // function generatePassword() {
-// get password criteria
-const passwordCriteria = getCriteria();
-// console.log(getCriteria);
-const randomSpecial = getRandomSpecial();
-console.log(randomSpecial);
+
+// const randomSpecial = getRandomSpecial();
+// console.log(randomSpecial);
 
 // generate random password
-// create empty passwordCharacters array
-// // for loop through the value of passwordLength
+// // for loop through array of functions using the value of passwordLength
 // for (let i = 0; i < passwordLength; i++) {
 // const getRandomInteger = Math.floor(Math.random() * passwordLength);
 //   // pick random object property using randomInteger
@@ -246,14 +246,14 @@ console.log(randomSpecial);
 //   // assign character to passwordCharacters array
 // }
 
-// // PROVIDED CODE
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+// PROVIDED CODE
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
-// }
+  passwordText.value = password;
+}
 
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
