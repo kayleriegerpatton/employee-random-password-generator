@@ -113,7 +113,7 @@ const validateIsNumber = function (passwordLength) {
 
 // check password length is >=8 and <= 128
 const validateNumberValue = function (passwordLength) {
-  const validValue = passwordLength >= 8 || passwordLength <= 128;
+  const validValue = passwordLength >= 8 && passwordLength <= 128;
   return validValue;
 };
 
