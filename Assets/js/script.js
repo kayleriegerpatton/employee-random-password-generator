@@ -59,7 +59,6 @@ const upperCase = [
 
 const numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// Special characters: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
 const specialCharacters = [
   "!",
   '"',
@@ -95,7 +94,7 @@ const specialCharacters = [
   "~",
 ];
 
-// Assignment Code
+// FUNCTION DECLARATIONS
 var generateBtn = document.querySelector("#generate");
 
 const getPasswordLength = function () {
@@ -141,6 +140,7 @@ const getIsSpecial = function () {
   return isSpecial;
 };
 
+// compile password criteria selections
 const getCriteria = function () {
   // get password length
   const passwordLength = getPasswordLength();
@@ -179,26 +179,34 @@ const getCriteria = function () {
   }
 };
 
-// // FUNCTION DECLARATIONS (how to do steps)
+const generatePassword = function () {
+  // declare passwordCharacters array
+  const passwordCharacters = [];
+
+  // randomly choose a character type array from the chosen (true) options
+  // randomly choose character from array
+  // generate random integer to set the passwordCharacters array length
+  const randomInteger = Math.floor(Math.random() * passwordLength);
+
+  return;
+};
+
+// EXECUTION (what to do/call from above)
 // function generatePassword() {
-//   // All code goes here
+// get password criteria
 const passwordCriteria = getCriteria();
 console.log(passwordCriteria);
-// }
 
-// // APPLICATION STEPS (what to do/call from above)
-
-// // generate random password
+// generate random password
+// create empty passwordCharacters array
 // // for loop through the value of passwordLength
-// for (let i = 0; i < passwordLength + 1; i++) {
-//   // getRandomIndexNumber between 1 and passwordLength
-//   const getRandomIndexNumber = Math.floor(Math.random() * passwordLength - 1);
-//   // pick random object array using randomIndexNumber
-//   // get randomCharacterNumber between 0 and array length-1
-//   // pick random character number from object array using randomCharacterNumber
-//   // push character into passwordCharacters array (how/where to declare this?)
+// for (let i = 0; i < passwordLength; i++) {
+// const getRandomInteger = Math.floor(Math.random() * passwordLength);
+//   // pick random object property using randomInteger
+//   // get randomCharacterNumber between 0 and index length-1
+//   // pick random character number from object properties using randomCharacterNumber
+//   // assign character to passwordCharacters array
 // }
-// // writePassword to page
 
 // // PROVIDED CODE
 // // Write password to the #password input
