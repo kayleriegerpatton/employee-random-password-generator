@@ -117,6 +117,30 @@ const validateNumberValue = function (passwordLength) {
   return validValue;
 };
 
+// check if lowercase characters is chosen
+const getIsLowercase = function () {
+  const isLowercase = confirm("Include lowercase characters?");
+  return isLowercase;
+};
+
+// check if uppercase characters is chosen
+const getIsUppercase = function () {
+  const isUppercase = confirm("Include uppercase characters?");
+  return isUppercase;
+};
+
+// check if numeric characters is chosen
+const getIsNumeric = function () {
+  const isNumeric = confirm("Include numeric characters?");
+  return isNumeric;
+};
+
+// check if special characters is chosen
+const getIsSpecial = function () {
+  const isSpecial = confirm("Include special characters?");
+  return isSpecial;
+};
+
 const getCriteria = function () {
   // get password length
   const passwordLength = getPasswordLength();
@@ -129,8 +153,12 @@ const getCriteria = function () {
     const isNumeric = getIsNumeric();
     const isSpecial = getIsSpecial();
     // check not all false
-    if (true) {
-      // remove true above
+    if (
+      isLowercase === true ||
+      isUppercase === true ||
+      isNumeric === true ||
+      isSpecial === true
+    ) {
       // create password criteria object
       const passwordCriteria = {
         passwordLength: passwordLength,
@@ -139,6 +167,7 @@ const getCriteria = function () {
         isNumeric: isNumeric,
         isSpecial: isSpecial,
       };
+      console.log(passwordCriteria);
       return passwordCriteria;
     } else {
       alert("Please select at least one character type.");
@@ -150,35 +179,35 @@ const getCriteria = function () {
   }
 };
 
-// FUNCTION DECLARATIONS (how to do steps)
-function generatePassword() {
-  // All code goes here
-  const passwordCriteria = getCriteria();
-  console.log(passwordCriteria);
-}
+// // FUNCTION DECLARATIONS (how to do steps)
+// function generatePassword() {
+//   // All code goes here
+//   const passwordCriteria = getCriteria();
+//   console.log(passwordCriteria);
+// }
 
-// APPLICATION STEPS (what to do/call from above)
+// // APPLICATION STEPS (what to do/call from above)
 
-// generate random password
-// for loop through the value of passwordLength
-for (let i = 0; i < passwordLength + 1; i++) {
-  // getRandomIndexNumber between 1 and passwordLength
-  const getRandomIndexNumber = Math.floor(Math.random() * passwordLength - 1);
-  // pick random object array using randomIndexNumber
-  // get randomCharacterNumber between 0 and array length-1
-  // pick random character number from object array using randomCharacterNumber
-  // push character into passwordCharacters array (how/where to declare this?)
-}
-// writePassword to page
+// // generate random password
+// // for loop through the value of passwordLength
+// for (let i = 0; i < passwordLength + 1; i++) {
+//   // getRandomIndexNumber between 1 and passwordLength
+//   const getRandomIndexNumber = Math.floor(Math.random() * passwordLength - 1);
+//   // pick random object array using randomIndexNumber
+//   // get randomCharacterNumber between 0 and array length-1
+//   // pick random character number from object array using randomCharacterNumber
+//   // push character into passwordCharacters array (how/where to declare this?)
+// }
+// // writePassword to page
 
-// PROVIDED CODE
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// // PROVIDED CODE
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-}
+//   passwordText.value = password;
+// }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
