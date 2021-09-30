@@ -215,36 +215,58 @@ const getRandomSpecial = function () {
   return randomSpecial;
 };
 
+const getChoicesArray = function (passwordCriteria) {
+  const choicesArray = [];
+  if (passwordCriteria.isLowercase) {
+    choicesArray.push(getRandomLower);
+  }
+  if (passwordCriteria.isUppercase) {
+    choicesArray.push(getRandomUpper);
+  }
+  if (passwordCriteria.isNumeric) {
+    choicesArray.push(getRandomNumeric);
+  }
+  if (passwordCriteria.isSpecial) {
+    choicesArray.push(getRandomSpecial);
+  }
+  return choicesArray;
+};
+
+const generateRandomPassword = function (passwordCriteria, choicesArray) {
+  const passwordCharacters = [];
+
+  for (let i = 0; i < passwordCriteria.passwordLength; i++) {
+    // get random index from choicesArray
+    const randomChoicesArrayIndex = Math.floor(
+      Math.random() * choicesArray.length
+    );
+
+    // get random choice from choicesArray
+    const randomChoicesFunction = choicesArray[randomChoicesArrayIndex];
+
+    // get random character by calling randomChoicesFunction
+    const randomCharacter = randomChoicesFunction();
+
+    // push random character into password array
+    passwordCharacters.push(randomCharacter);
+  }
+  //  convert array to string
+  const password = passwordCharacters.join("");
+
+  return password;
+};
+
 const generatePassword = function () {
   // get password criteria
   const passwordCriteria = getCriteria();
-  console.log(passwordCriteria);
-  // declare empty passwordCharacters array
-  const passwordCharacters = [];
-  // get randomIndexNumber
-  // use randomIndexNumber choose a random character type array from the chosen (true) options
-  // get randomCharacterNumber // ARRAY OF FUNCTIONS? HOW?
-  // use randomCharacterNumber to choose a character from array
-  // const randomInteger = Math.floor(Math.random() * passwordLength);
 
-  return "password123";
+  // get choices array
+  const choicesArray = getChoicesArray(passwordCriteria);
+
+  // get random password
+  const password = generateRandomPassword(passwordCriteria, choicesArray);
+  return password;
 };
-
-// EXECUTION (what to do/call from above)
-// function generatePassword() {
-
-// const randomSpecial = getRandomSpecial();
-// console.log(randomSpecial);
-
-// generate random password
-// // for loop through array of functions using the value of passwordLength
-// for (let i = 0; i < passwordLength; i++) {
-// const getRandomInteger = Math.floor(Math.random() * passwordLength);
-//   // pick random object property using randomInteger
-//   // get randomCharacterNumber between 0 and index length-1
-//   // pick random character number from object properties using randomCharacterNumber
-//   // assign character to passwordCharacters array
-// }
 
 // PROVIDED CODE
 // Write password to the #password input
