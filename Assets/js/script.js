@@ -215,6 +215,7 @@ const getRandomSpecial = function () {
   return randomSpecial;
 };
 
+// create array of "get character" functions
 const getChoicesArray = function (passwordCriteria) {
   const choicesArray = [];
   if (passwordCriteria.isLowercase) {
