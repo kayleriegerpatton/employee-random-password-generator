@@ -269,7 +269,7 @@ const generatePassword = function () {
   return password;
 };
 
-// PROVIDED CODE
+// PROJECT-PROVIDED CODE
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
