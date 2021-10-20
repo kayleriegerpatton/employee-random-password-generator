@@ -146,7 +146,7 @@ const getCriteria = function () {
   const passwordLength = getPasswordLength();
   const isValid =
     validateIsNumber(passwordLength) === "number" &&
-    validateNumberValue(passwordLength) === true;
+    validateNumberValue(passwordLength);
   if (isValid) {
     // get password character choices
     const isLowercase = getIsLowercase();
@@ -154,12 +154,7 @@ const getCriteria = function () {
     const isNumeric = getIsNumeric();
     const isSpecial = getIsSpecial();
     // check not all false
-    if (
-      isLowercase === true ||
-      isUppercase === true ||
-      isNumeric === true ||
-      isSpecial === true
-    ) {
+    if (isLowercase || isUppercase || isNumeric || isSpecial) {
       // create password criteria object
       const passwordCriteria = {
         passwordLength: passwordLength,
