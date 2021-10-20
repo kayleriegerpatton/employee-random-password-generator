@@ -98,18 +98,18 @@ const special = [
 var generateBtn = document.querySelector("#generate");
 
 // check password length is a number (not a string)
-const validateIsNumber = function (passwordLength) {
+const validateIsNumber = (passwordLength) => {
   const isNumber = typeof passwordLength;
   return isNumber;
 };
 
 // check password length is >=8 and <= 128
-const validateNumberValue = function (passwordLength) {
+const validateNumberValue = (passwordLength) => {
   const validValue = passwordLength >= 8 && passwordLength <= 128;
   return validValue;
 };
 
-const getPasswordLength = function () {
+const getPasswordLength = () => {
   const passwordLength = prompt(
     "Please select a password length between 8 and 128 characters."
   );
@@ -117,31 +117,31 @@ const getPasswordLength = function () {
 };
 
 // check if lowercase characters is chosen
-const getIsLowercase = function () {
+const getIsLowercase = () => {
   const isLowercase = confirm("Include lowercase characters?");
   return isLowercase;
 };
 
 // check if uppercase characters is chosen
-const getIsUppercase = function () {
+const getIsUppercase = () => {
   const isUppercase = confirm("Include uppercase characters?");
   return isUppercase;
 };
 
 // check if numeric characters is chosen
-const getIsNumeric = function () {
+const getIsNumeric = () => {
   const isNumeric = confirm("Include numeric characters?");
   return isNumeric;
 };
 
 // check if special characters is chosen
-const getIsSpecial = function () {
+const getIsSpecial = () => {
   const isSpecial = confirm("Include special characters?");
   return isSpecial;
 };
 
 // compile password criteria selections
-const getCriteria = function () {
+const getCriteria = () => {
   // get password length
   const passwordLength = getPasswordLength();
   const isValid =
@@ -175,7 +175,7 @@ const getCriteria = function () {
 };
 
 // get random lowercase character
-const getRandomLower = function () {
+const getRandomLower = () => {
   // get random index integer
   const randomInteger = Math.floor(Math.random() * lowerCase.length);
   // select random character from array
@@ -184,7 +184,7 @@ const getRandomLower = function () {
 };
 
 // get random uppercase character
-const getRandomUpper = function () {
+const getRandomUpper = () => {
   // get random index integer
   const randomInteger = Math.floor(Math.random() * upperCase.length);
   // select random character from array
@@ -193,7 +193,7 @@ const getRandomUpper = function () {
 };
 
 // get random numeric character
-const getRandomNumeric = function () {
+const getRandomNumeric = () => {
   // get random index integer
   const randomInteger = Math.floor(Math.random() * numeric.length);
   // select random character from array
@@ -202,7 +202,7 @@ const getRandomNumeric = function () {
 };
 
 // get random special character
-const getRandomSpecial = function () {
+const getRandomSpecial = () => {
   // get random index integer
   const randomInteger = Math.floor(Math.random() * special.length);
   // select random character from array
@@ -211,7 +211,7 @@ const getRandomSpecial = function () {
 };
 
 // create array of "get character" functions
-const getChoicesArray = function (passwordCriteria) {
+const getChoicesArray = (passwordCriteria) => {
   const choicesArray = [];
   if (passwordCriteria.isLowercase) {
     choicesArray.push(getRandomLower);
@@ -228,7 +228,7 @@ const getChoicesArray = function (passwordCriteria) {
   return choicesArray;
 };
 
-const generateRandomPassword = function (passwordCriteria, choicesArray) {
+const generateRandomPassword = (passwordCriteria, choicesArray) => {
   const passwordCharacters = [];
 
   for (let i = 0; i < passwordCriteria.passwordLength; i++) {
@@ -252,7 +252,7 @@ const generateRandomPassword = function (passwordCriteria, choicesArray) {
   return password;
 };
 
-const generatePassword = function () {
+const generatePassword = () => {
   // get password criteria
   const passwordCriteria = getCriteria();
 
@@ -264,7 +264,7 @@ const generatePassword = function () {
   return password;
 };
 
-// PROJECT-PROVIDED CODE
+// PROVIDED CODE
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
