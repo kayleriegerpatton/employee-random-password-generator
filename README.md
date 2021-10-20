@@ -2,13 +2,28 @@
 
 A random password generator using HTML, CSS, and JS.
 
-The generator prompts users for specific criteria including a password length of 8-128 characters, and at least one type of character (lowercase, uppercase, numeric, special). This criteria is then used to generate the password after all on-screen prompts.
+The generator prompts users for specific criteria including a password length of 8-128 characters, and at least one character type (lowercase, uppercase, numeric, special). This criteria is then used to generate the password after all on-screen prompts.
 
 ## Deployed Application
 
 [Employee random password generator](https://kayleriegerpatton.github.io/employee-random-password-generator/ "Employee random password generator")
 
-## Built With:
+## User Story
+
+GIVEN the user is an employee who needs to create a random password based on accepted criteria  
+WHEN the employee clicks "Generate Password"  
+THEN they are prompted to enter a password length in a given range
+
+WHEN the user enters a valid number  
+THEN they are prompted to choose what type of characters to use in their password
+
+WHEN the user doesn't choose any of the character types  
+THEN they are prompted to choose at least one character type
+
+WHEN the user selects at least one character type and completes the prompts  
+THEN they are presented with a randomly generated password of their chosen length and comprised of their selected character type(s)
+
+## Built With
 
 - CSS
 - HTML
